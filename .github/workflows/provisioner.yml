@@ -1,0 +1,47 @@
+# Nom du workflow qui apparaîtra dans l'onglet "Actions" de GitHub
+name: "Agent Provisioner Workflow"
+
+# Définition du déclencheur (trigger)
+on:
+  issues:
+    types: [labeled]
+
+# Définition des tâches (jobs) à exécuter
+jobs:
+  generate_plan:
+    # CONDITION : Ne s'exécute que si l'étiquette est "provision-request"
+    if: github.event.label.name == 'provision-request'
+    
+    # Le type de machine sur lequel le job va s'exécuter
+    runs-on: ubuntu-latest
+
+    # Définition des permissions requises par le job pour interagir avec les issues
+    permissions:
+      issues: write
+      contents: read
+
+    # La séquence d'étapes à exécuter
+    steps:
+      # Étape 1 : Récupérer le code de notre dépôt
+      - name: Checkout du code des agents
+        uses: actions/checkout@v4
+
+      # Étape 2 : Installer Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      # Étape 3 : Installer les dépendances Python depuis notre nouveau fichier
+      - name: Installer les dépendances
+        run: |
+          pip install -r requirements.txt
+      
+      # Étape 4 : Lancer le script de l'Agent Provisioner
+      - name: Lancer l'Agent Provisioner
+        env:
+          # On fournit le jeton GitHub et le numéro de l'issue au script Python
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          python agents/provisioner/main.py
