@@ -1,0 +1,42 @@
+# Nom du workflow qui apparaîtra dans l'onglet "Actions" de GitHub
+name: "Agent Provisioner Workflow"
+
+# Définition du déclencheur (trigger)
+on:
+  # Ce workflow se déclenche sur un événement concernant les "Issues"
+  issues:
+    # Plus précisément, lorsque qu'une étiquette ("label") est ajoutée
+    types: [labeled]
+
+# Définition des tâches (jobs) à exécuter
+jobs:
+  # Notre premier job : générer le plan d'exécution
+  generate_plan:
+    # CONDITION : Ce job ne s'exécutera QUE SI l'étiquette ajoutée est exactement "provision-request"
+    if: github.event.label.name == 'provision-request'
+    
+    # Le type de machine sur lequel le job va s'exécuter
+    runs-on: ubuntu-latest
+
+    # La séquence d'étapes à exécuter
+    steps:
+      # Étape 1 : Récupérer le code de notre dépôt
+      - name: Checkout du code des agents
+        uses: actions/checkout@v4
+
+      # Étape 2 (Platzhalter) : Installer les dépendances
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Installer les dépendances Python
+        run: |
+          pip install -r requirements.txt # Nous créerons ce fichier plus tard
+
+      # Étape 3 (Platzhalter) : Lancer l'agent pour la planification
+      - name: Lancer l'Agent Provisioner (Planification)
+        run: |
+          echo "Ici, nous lancerons le script Python qui active l'Agent Provisioner."
+          echo "L'agent lira l'issue ${{ github.event.issue.html_url }}."
+          # python -m agents.provisioner --issue-number ${{ github.event.issue.number }} --action plan
