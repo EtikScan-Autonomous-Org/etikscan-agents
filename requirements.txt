@@ -1,0 +1,7 @@
+# requirements.txt
+
+# Bibliothèque pour interagir avec l'API de GitHub
+PyGithub
+
+# Bibliothèque pour l'orchestration des agents IA (nous l'installerons plus tard)
+# autogen
