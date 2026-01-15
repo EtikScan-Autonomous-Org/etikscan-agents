@@ -1,0 +1,170 @@
+/* Settings Page Styles */
+.settings-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.settings-header {
+  margin-bottom: 2rem;
+}
+
+.settings-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.settings-header p {
+  color: #666;
+}
+
+.settings-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.settings-section {
+  padding: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.settings-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.info-card {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+.info-row.highlight {
+  background-color: #f0f7ff;
+  border-radius: 6px;
+  padding: 1rem;
+  border-left: 4px solid #0066cc;
+}
+
+.info-row .label {
+  width: 180px;
+  font-weight: 600;
+  color: #555;
+}
+
+.info-row .value {
+  flex: 1;
+}
+
+.id-display {
+  display: flex;
+  align-items: center;
+}
+
+.id-display code {
+  background-color: #f0f0f0;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  font-family: monospace;
+  margin-right: 0.5rem;
+  color: #333;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  flex: 1;
+}
+
+.copy-button {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.copy-button:hover {
+  background-color: #0055aa;
+}
+
+.terraform-help {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed #ddd;
+}
+
+.terraform-help h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.terraform-help pre {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-family: monospace;
+  margin-top: 0.5rem;
+  border: 1px solid #ddd;
+}
+
+.divider {
+  height: 1px;
+  background-color: #eee;
+}
+
+.settings-help {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border-left: 4px solid #0066cc;
+}
+
+.settings-help h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.settings-help a {
+  color: #0066cc;
+  text-decoration: none;
+  margin-left: 0.3rem;
+}
+
+.settings-help a:hover {
+  text-decoration: underline;
+}
+
+.loading {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+.error {
+  padding: 1rem;
+  background-color: #fff2f2;
+  border-left: 4px solid #cc0000;
+  margin: 1rem 0;
+  color: #cc0000;
+}
+
+.no-data {
+  padding: 1rem;
+  color: #666;
+  font-style: italic;
+}
